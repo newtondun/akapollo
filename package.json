@@ -9,8 +9,9 @@
   "dependencies": {},
   "devDependencies": {
     "aliasify": "^1.7.2",
+    "axis": "^0.3.1",
     "babelify": "^5.0.4",
-    "browserify": "^9.0.3",
+    "browserify": "^9.0.4",
     "browserify-shim": "^3.8.3",
     "del": "^1.1.1",
     "gulp": "^3.8.11",
@@ -30,7 +31,7 @@
     "require-dir": "^0.3.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.0.0"
+    "watchify": "^3.1.0"
   },
   "aliasify": "./gulpfiles/config/aliases.js",
   "browserify-shim": {

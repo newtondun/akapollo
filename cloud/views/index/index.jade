@@ -1,9 +1,17 @@
 extends ../layout
 
 block title
-  title Akapollo
+  title AKAPOLLO
+
+block head
+  link(
+  rel='stylesheet'
+  href='/css/index.css')
 
 block body
-  main#main
+  main#index
+    p WELCOME TO AKAPOLLO
+    p
+      a(href='/player') GOTO PLAY
 
 block bottom

@@ -2,7 +2,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var config = require('../config/style');
 var gulp = require('gulp');
 var minifyCSS = require('gulp-minify-css');
-var nib = require('nib');
+var axis = require('axis');
 var util = require('gulp-util');
 var sourcemaps = require('gulp-sourcemaps');
 var stylus = require('gulp-stylus');
@@ -10,7 +10,7 @@ var stylus = require('gulp-stylus');
 var stylusTask = function(dev) {
   gulp.src(config.entries)
     .pipe(dev ? sourcemaps.init() : util.noop())
-    .pipe(stylus({ use: nib() }))
+    .pipe(stylus({ use: axis() }))
     .pipe(autoprefixer({ browsers: [ 'last 2 versions' ] }))
     .pipe(dev ? util.noop() : minifyCSS())
     .pipe(dev ? sourcemaps.write('.') : util.noop())

@@ -11,4 +11,7 @@ app.get('/', index);
 var player = require('cloud/routes/player');
 app.get('/player', player);
 
+var about = require('cloud/routes/about');
+app.get('/about', about);
+
 app.listen();
