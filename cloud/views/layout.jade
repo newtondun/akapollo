@@ -4,10 +4,12 @@ html
     include include/meta
     block title
     include include/head
+    block global-head
     block head
   body
-    include common/header
+    block header
     block body
-    include common/footer
+    block footer
     include include/bottom
+    block global-bottom
     block bottom

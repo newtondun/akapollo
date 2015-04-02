@@ -1,0 +1,30 @@
+extends base
+
+block title
+  title AKAPOLLO - ADMIN LOGIN
+
+block head
+  link(
+    rel='stylesheet'
+    href='/css/admin.css')
+
+block body
+  main#admin-login
+    p LOGIN
+    form(
+      action='/signin'
+      method='post')
+      fieldset
+        label
+          span 用户名
+          input(
+            type='input'
+            name='username')
+        label
+          span 密码
+          input(
+            type='input'
+            name='password')
+        input(
+          type='submit'
+          value='登陆')

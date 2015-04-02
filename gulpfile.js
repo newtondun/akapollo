@@ -1,5 +1,2 @@
 var requireDir = require("require-dir");
-
-requireDir("./gulpfiles/task", {
-  recurse: true
-});
+requireDir(__dirname + "/client/gulp/task");
