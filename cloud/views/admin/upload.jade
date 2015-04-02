@@ -1,0 +1,27 @@
+extends base
+
+block title
+  title AKAPOLLO - UPLOAD
+
+block head
+  link(
+    rel='stylesheet'
+    href='/css/admin.css')
+
+block body
+  main#admin
+    form(
+      enctype="multipart/form-data"
+      method="post"
+      action="/upload")
+      fieldset
+        p Upload
+        label
+          span 选择音频
+          input(
+            type='file'
+            name='music')
+      input(
+        type='submit'
+        value='上传')
+
