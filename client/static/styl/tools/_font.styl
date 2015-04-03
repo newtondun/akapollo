@@ -1,11 +1,20 @@
-@font-face
-  font-family 'Futura-Condensed-Normal'
-  src url('/fonts/Futura-Condensed-Normal.eot') format('embedded-opentype')
-  font-weight normal
-  font-style normal
+$Raleway = 'http://7xiewl.com1.z0.glb.clouddn.com/raleway';
+$RalewayBold = 'http://7xiewl.com1.z0.glb.clouddn.com/raleway-bold';
 
 @font-face
-  font-family 'Futura-Condensed-Normal'
-  src url(data:application/x-font-woff\;charset=utf-8\;base64,) format('woff')\, url('/fonts/Futura-Condensed-Normal.ttf') format('truetype')\, url('/fonts/Futura-Condensed-Normal.svg#Futura-Condensed-Normal') format('svg')
+  font-family "Raleway"
   font-weight normal
   font-style normal
+  src url($Raleway + '.eot?#iefix') format('embedded-opentype'),
+      url($Raleway + '.woff') format('woff'),
+      url($Raleway + '.ttf')  format('truetype'),
+      url($Raleway + '.svg') format('svg');
+
+@font-face
+  font-family 'Raleway'
+  font-weight bold
+  font-style normal
+  src url($RalewayBold + '.eot?#iefix') format('embedded-opentype'),
+      url($RalewayBold + '.woff') format('woff'),
+      url($RalewayBold + '.ttf')  format('truetype'),
+      url($RalewayBold + '.svg') format('svg');

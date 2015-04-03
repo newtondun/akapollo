@@ -10,10 +10,12 @@ var stylus = require('gulp-stylus');
 var stylusTask = function(dev) {
   gulp.src(config.entries)
     .pipe(dev ? sourcemaps.init() : util.noop())
-    .pipe(stylus({ use: axis() }))
+    .pipe(stylus({
+      compress: !dev,
+      use: axis()
+    }))
     .pipe(autoprefixer({ browsers: [ 'last 2 versions' ] }))
-    .pipe(dev ? util.noop() : minifyCSS())
-    .pipe(dev ? sourcemaps.write('.') : util.noop())
+    .pipe(dev ? sourcemaps.write() : util.noop())
     .pipe(gulp.dest(config.output));
 };
 

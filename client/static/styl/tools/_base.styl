@@ -1,0 +1,40 @@
+html
+  font-size 62.5%
+
+html, body
+  height 100%
+
+body
+  clearfix()
+  background $GLOBAL-BGCOLOR
+  color $GLOBAL-FONTCOLOR
+  font-family $GLOBAL-FONTFAMILY
+  font-size 1.6rem
+  line-height 1.618
+
+a, button
+  cursor pointer
+
+a
+  reset-link()
+  transition: color .2s ease-in-quad, background .2s ease-in-quad
+  padding .2rem
+  color $GLOBAL-LINKCOLOR
+  font-weight bold
+  &:hover
+    background $GLOBAL-HOVERBGCOLOR
+    color $GLOBAL-HOVERCOLOR
+
+button
+  margin 0
+  padding .5rem
+  background none
+  border 1rem solid $GLOBAL-BUTTON-BDCOLOR
+  border-radius: .5rem
+  color $GLOBAL-BUTTON-LINKCOLOR
+  font-family $GLOBAL-FONTFAMILY
+  font-weight bold
+  outline none
+  &:hover
+    background $GLOBAL-BUTTON-BGCOLOR
+    color $GLOBAL-BUTTON-HOVERCOLOR

@@ -1,12 +1,10 @@
 var src = './client/static/styl/';
+var client = src + 'client/';
 
 var config = {
   entries: [
     src + 'global.styl',
-    src + 'admin.styl',
-    src + 'common.styl',
-    src + 'index.styl',
-    src + 'about.styl'
+    client + 'client.styl'
   ],
   output: './public/css'
 };

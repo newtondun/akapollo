@@ -1,15 +1,15 @@
 var app = require('cloud/app');
 
 app.get('/', function(req, res) {
-  res.render('index');
+  res.render('client');
 });
 
 app.get('/player', function(req, res) {
-  res.render('index/player');
+  res.render('client/player');
 });
 
 app.get('/about', function(req, res) {
-  res.render('index/about', contents());
+  res.render('client/about', contents());
 });
 
 app.get('/test', function(req, res) {

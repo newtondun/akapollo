@@ -6,5 +6,7 @@ AV._initialize(APP_ID, APP_KEY, MASTER_KEY);
 AV.Cloud.useMasterKey();
 
 require("cloud/index");
+// require('cloud/defines/AVRoleSuperUser');
+// require('cloud/defines/AVRoleNormalUser');
 require('cloud/defines/AVSignUp');
 require('cloud/defines/AVSignIn');

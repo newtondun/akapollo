@@ -11,13 +11,15 @@ AV.Cloud.define('SignUp', function(request, response) {
   user.set('username', request.params.username);
   user.set('password', request.params.password);
   user.set('email', request.params.email);
+  user.set('mobilePhoneNumber', request.params.mobile);
 
   user.signUp(null, {
     success: function(user) {
-        console.log('Success: ' + request.params.username + ' is sign up!');
+      response.success('New User: ' + request.params.username + ' is sign up!');
     },
     error: function(user, error) {
-        console.log("Error: " + error.code + " " + error.message);
+      response.error("Error: " + error.code + " " + error.message);
     }
   });
+
 });
