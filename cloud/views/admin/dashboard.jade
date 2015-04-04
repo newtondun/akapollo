@@ -1,0 +1,46 @@
+extends base
+
+block title
+  title AKAPOLLO - ADMIN
+
+block head
+
+block body
+  main#container
+    section#dashboard
+      article#loops
+        table
+          thead
+            tr
+              th ID
+              th FILENAME
+              th AUDIO
+              th KEY
+              th ACTION
+          tbody
+            each sound, index in data
+              tr
+                td #{ sound.id }
+                td #{ sound.name }
+                td
+                  audio(
+                    src=sound.url
+                    controls)
+                td
+                  input(
+                    data-id=sound.id
+                    class='key-loop'
+                    type='input'
+                    maxlength=1
+                    value=sound.key
+                    required)
+                td
+                  a(
+                    data-id=sound.id
+                    class='update-loop') UPDATE
+                  a(
+                    data-id=sound.id
+                    class='delete-loop') DELETE
+
+block bottom
+  script(src='/js/admin.js')

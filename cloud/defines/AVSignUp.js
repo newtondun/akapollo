@@ -1,24 +1,24 @@
-AV.Cloud.define('SignUp', function(request, response) {
+AV.Cloud.define('SignUp', function(req, res) {
 
   var _ = require('lodash-node');
 
-  if (_.isEmpty(request.params)) {
-    return response.error('Invalid Username or Password');
+  if (_.isEmpty(req.params)) {
+    return res.error('Invalid Username or Password');
   }
 
   var user = new AV.User();
 
-  user.set('username', request.params.username);
-  user.set('password', request.params.password);
-  user.set('email', request.params.email);
-  user.set('mobilePhoneNumber', request.params.mobile);
+  user.set('username', req.params.username);
+  user.set('password', req.params.password);
+  user.set('email', req.params.email);
+  user.set('mobilePhoneNumber', req.params.mobile);
 
   user.signUp(null, {
     success: function(user) {
-      response.success('New User: ' + request.params.username + ' is sign up!');
+      res.success('New User: ' + req.params.username + ' is sign up!');
     },
     error: function(user, error) {
-      response.error("Error: " + error.code + " " + error.message);
+      res.error("Error: " + error.code + " " + error.message);
     }
   });
 

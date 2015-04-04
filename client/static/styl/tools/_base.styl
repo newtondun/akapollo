@@ -12,8 +12,11 @@ body
   fs: (16/16)rem
   line-height 1.618
 
-a, button
-  cursor pointer
+a, button, input[type=button], input[type=submit]
+  cursor: pointer
+
+a, button, input
+  font-family $GLOBAL-FONTFAMILY
 
 a
   reset-link()

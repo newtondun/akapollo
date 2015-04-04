@@ -12,10 +12,6 @@ app.get('/about', function(req, res) {
   res.render('client/about', contents());
 });
 
-app.get('/test', function(req, res) {
-  res.send('test');
-});
-
 function contents() {
   return {
     benjamin: 'benjamin',

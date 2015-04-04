@@ -6,22 +6,25 @@ block title
 block head
 
 block body
-  main#admin-login
-    p LOGIN
-    form(
-      action='/signin'
-      method='post')
-      fieldset
-        label
-          span 用户名
-          input(
-            type='input'
-            name='username')
-        label
-          span 密码
-          input(
-            type='password'
-            name='password')
-      input(
-        type='submit'
-        value='登陆')
+  main#container
+    section#login
+      form(
+        action='/signin'
+        method='post')
+        fieldset
+          legend LOGIN
+          label
+            span USERNAME
+            input(
+              type='input'
+              name='username'
+              required)
+          label
+            span PASSWORD
+            input(
+              type='password'
+              name='password'
+              required)
+        input(
+          type='submit'
+          value='CONFIRM')

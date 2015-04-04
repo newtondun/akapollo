@@ -6,19 +6,27 @@ block title
 block head
 
 block body
-  main#admin
-    form(
-      enctype="multipart/form-data"
-      method="post"
-      action="/upload")
-      fieldset
-        p Upload
-        label
-          span 选择音频
-          input(
-            type='file'
-            name='music')
-      input(
-        type='submit'
-        value='上传')
-
+  main#container
+    section#upload
+      form(
+        enctype="multipart/form-data"
+        method="post"
+        action="/loop/upload")
+        fieldset
+          legend UPLOAD
+          label
+            span PICK UP YOUR MUSIC
+            input(
+              type='file'
+              name='music'
+              required)
+          label
+            span TYPE WHAT KEY YOU WANT TO BIND
+            input(
+              type='input'
+              name='key'
+              maxlength=1
+              required)
+        input(
+          type='submit'
+          value='CONFIRM')

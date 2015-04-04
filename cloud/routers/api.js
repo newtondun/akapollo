@@ -1,4 +1,5 @@
-var app = require('cloud/app'),
+var _ = require('lodash-node'),
+    app = require('cloud/app'),
     fs = require('fs');
 
 app.get('/login', function(req, res) {
@@ -11,12 +12,12 @@ app.get('/logout', function(req, res) {
 });
 
 app.post('/signin', function(req, res) {
-  var User = {
+  var data = {
     username: req.body.username,
     password: req.body.password
   };
 
-  AV.Cloud.run('SignIn', User, {
+  AV.Cloud.run('SignIn', data, {
     success: function() {
       res.redirect('/admin');
     },
@@ -26,13 +27,16 @@ app.post('/signin', function(req, res) {
   });
 });
 
-app.post('/upload', function(req, res){
+app.post('/loop/upload', function(req, res) {
+
   var Music = req.files.music;
-  if (Music) {
+  var Key = String(req.body.key).toLowerCase();
+
+  if (!_.isEmpty(Music) && !_.isEmpty(Key)) {
     fs.readFile(Music.path, function(err, data) {
 
       if (err) {
-        return res.send('读取文件失败');
+        return res.send({ message: 'Failed to Read Files' });
       }
 
       var base64Data = data.toString('base64');
@@ -40,26 +44,78 @@ app.post('/upload', function(req, res){
         base64: base64Data
       });
 
-      MusicFile.save().then(function(MusicFile){
-        res.send('上传成功！');
+      MusicFile.save().then(function(MusicFile) {
+        var Loop = new AV.Object('Loop');
+        Loop.set('name', Music.name);
+        Loop.set('key', Key);
+        Loop.set('file', MusicFile);
+        Loop.save(null, {
+          success: function() {
+            res.send('Upload Success');
+          },
+          error: function(error) {
+            res.send({ message: error });
+          }
+        });
+      }, function(error) {
+        res.send({ message: error });
       });
 
     });
   } else {
-    res.send('请选择一个文件。');
+    res.send({ message: 'Please Select one Files' });
   }
 });
 
-app.get('/sounds', function(req, res) {
-  var data = [];
+app.post('/loop/update', function(req, res) {
 
-  AV.Cloud.run('GetSounds', null, {
-    success: function(result) {
-      data = result;
-      res.send(data);
+  if (_.isEmpty(req.body)) {
+    return res.send('Empty Params');
+  }
+
+  var data = {
+    id: req.body.id,
+    key: req.body.key
+  };
+
+  AV.Cloud.run('PutLoop', data, {
+    success: function() {
+      var response = {
+        status  : 200,
+        success : 'Updated Successfully'
+      };
+
+      res.end(JSON.stringify(response));
     },
     error: function(error) {
-      console.log(error);
+      res.send(error);
     }
   });
+
+});
+
+app.post('/loop/delete', function(req, res) {
+
+  if (_.isEmpty(req.body)) {
+    return res.send('Empty Params');
+  }
+
+  var data = {
+    id: req.body.id,
+  };
+
+  AV.Cloud.run('DeleteLoop', data, {
+    success: function() {
+      var response = {
+        status  : 200,
+        success : 'Updated Successfully'
+      };
+
+      res.end(JSON.stringify(response));
+    },
+    error: function(error) {
+      res.send(error);
+    }
+  });
+
 });

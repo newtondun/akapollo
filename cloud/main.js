@@ -10,4 +10,4 @@ require("cloud/index");
 // require('cloud/defines/AVRoleNormalUser');
 require('cloud/defines/AVSignUp');
 require('cloud/defines/AVSignIn');
-require('cloud/defines/AVGetSounds');
+require('cloud/defines/AVLoop');

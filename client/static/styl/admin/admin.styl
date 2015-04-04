@@ -1,0 +1,135 @@
+@import '../tools/_variables'
+
+header
+  z-index 1000
+  background-color #9a9a9a;
+  fs: (16/16)rem
+  text-align left
+
+  a
+    inline-block()
+    padding 4px 10px
+    color #333;
+
+  #logout
+    float right
+
+#container
+  width 100%
+
+#login
+  margin-top 5rem
+  text-align center
+
+  form
+    display inline-block
+    padding 2rem 4rem
+    border .2rem solid #ccc
+
+    legend
+      margin-bottom 1rem
+      fs: (24/16)rem
+      font-weight bold
+
+    label
+      display block
+      padding .5rem 0
+
+      span
+        padding 0 .5rem
+
+    input[type=input], input[type=password]
+      margin 0
+      padding .5rem
+      background none
+      border .2rem solid $GLOBAL-INPUT-LINK-BDCOLOR
+      border-radius .2rem
+      color $GLOBAL-INPUT-LINK-COLOR
+      font-family $GLOBAL-FONTFAMILY
+      fs: (16/16)rem
+      font-weight bold
+      outline none
+      &:focus
+        background $GLOBAL-INPUT-HOVER-BGCOLOR
+        color $GLOBAL-INPUT-HOVER-COLOR
+
+    input[type=submit]
+      margin-top 2rem
+      padding .2rem 1rem
+      border .2rem solid #ccc
+      background #ccc
+      fs: (32/16)rem
+      outline none
+
+#upload
+  margin-top 5rem
+  text-align center
+
+  form
+    display inline-block
+    padding 2rem 4rem
+    border .2rem solid #ccc
+
+    legend
+      margin-bottom 1rem
+      fs: (24/16)rem
+      font-weight bold
+
+    label
+      display block
+      padding .5rem 0
+
+      span
+        padding 0 .5rem
+
+    input[type=input]
+      margin 0
+      padding .5rem
+      width 4rem
+      background none
+      border .2rem solid $GLOBAL-INPUT-LINK-BDCOLOR
+      border-radius .2rem
+      color $GLOBAL-INPUT-LINK-COLOR
+      font-family $GLOBAL-FONTFAMILY
+      fs: (16/16)rem
+      font-weight bold
+      text-align center
+      outline none
+      &:focus
+        background $GLOBAL-INPUT-HOVER-BGCOLOR
+        color $GLOBAL-INPUT-HOVER-COLOR
+
+    input[type=submit]
+      margin-top 2rem
+      padding .2rem 1rem
+      border .2rem solid #ccc
+      background #ccc
+      fs: (16/16)rem
+      outline none
+
+#dashboard
+  margin-top 2rem
+
+#loops
+  table
+    margin 0 auto
+
+    th, td
+      padding: .2rem .4rem
+
+    input[type=input]
+      margin 0
+      width 4rem
+      padding .2rem
+      background none
+      border .2rem solid $GLOBAL-INPUT-LINK-BDCOLOR
+      border-radius .2rem
+      color $GLOBAL-INPUT-LINK-COLOR
+      font-family $GLOBAL-FONTFAMILY
+      fs: (16/16)rem
+      font-weight bold
+      text-align center
+      outline none
+      &:focus
+        background $GLOBAL-INPUT-HOVER-BGCOLOR
+        color $GLOBAL-INPUT-HOVER-COLOR
