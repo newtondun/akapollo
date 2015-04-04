@@ -27,6 +27,18 @@ app.post('/signin', function(req, res) {
   });
 });
 
+app.get('/loop/get', function(req, res) {
+  AV.Cloud.run('GetLoop', null, {
+    success: function(result) {
+      data = result;
+      res.send({ data: data });
+    },
+    error: function(error) {
+      console.log(error);
+    }
+  });
+});
+
 app.post('/loop/upload', function(req, res) {
 
   var Music = req.files.music;

@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var keyMaster = require('keymaster');
 
 var KeyBoard = function() {
@@ -7,7 +8,19 @@ var KeyBoard = function() {
 };
 
 KeyBoard.prototype.bindKeys = function(sounds) {
-  this._isBindSounds = true;
+
+  var _this = this;
+
+  if (_this._isBindSounds) {
+    return console.warn('Keys are already Binded');
+  }
+
+  _.forEach(sounds, function(sound, index) {
+    keyMaster(sound.key, function() {
+      sound.audio.play();
+    });
+  });
+
 };
 
 module.exports = KeyBoard;
