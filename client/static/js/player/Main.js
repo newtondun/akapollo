@@ -1,30 +1,43 @@
+var $ = require('jquery');
 var _ = require('lodash');
-var Two = require('two');
-var Three = require('three');
+var key = require('keymaster');
 
-var Scene = new Three.Scene();
-var Camera = new Three.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+var KEYS = ['w', 's', 'a', 'd', 'h', 'j', 'k', 'l'];
+var SOUNDS = [];
 
-var hey
+$(function() {
+  $.ajax({
+    url: '/sounds',
+    method: 'GET',
+    dataType: 'json',
+    success: function(response) {
+      resolveSounds(response);
+    },
+    error: function(response) {
+      console.warn(response);
+    }
+  });
+});
 
-var Renderer = new Three.WebGLRenderer();
-Renderer.setSize( window.innerWidth, window.innerHeight );
-document.getElementById('player').appendChild( Renderer.domElement );
+function resolveSounds(data) {
+  var sounds = data;
 
-var geometry = new Three.BoxGeometry( 1, 1, 1 );
-var material = new Three.MeshBasicMaterial( { color: 0x00ff00 } );
-var cube = new Three.Mesh( geometry, material );
-Scene.add( cube );
+  if (_.isEmpty(data)) {
+    return console.warn('/sounds data is empty');
+  }
 
-Camera.position.z = 5;
+  SOUNDS = _.map(sounds, function(sound, index) {
+    var audio = new Audio(sound.url);
+    return audio;
+  });
 
-var render = function () {
-  requestAnimationFrame( render );
+  bindKeys(SOUNDS);
+}
 
-  cube.rotation.x += 0.1;
-  cube.rotation.y += 0.1;
-
-  Renderer.render(Scene, Camera);
-};
-
-render();
+function bindKeys(sounds) {
+  _.forEach(sounds, function(sound, index) {
+    key(KEYS[index], function() {
+      sound.play();
+    });
+  });
+}

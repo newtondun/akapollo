@@ -4,9 +4,13 @@ block title
   title AKAPOLLO - ADMIN
 
 block head
-  link(
-    rel='stylesheet'
-    href='/css/admin.css')
 
 block body
   main#admin
+    ul
+      each sound in data
+        li
+          p #{ sound.name }
+          audio(
+            src=sound.url
+            controls)

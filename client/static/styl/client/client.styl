@@ -1,8 +1,8 @@
 header
   fixed: top left right
   z-index 1000
-  background #000
   text-align center
+  fs: (16/16)rem
 
   ul
     margin 0
@@ -15,8 +15,7 @@ header
 footer
   fixed: bottom left right
   z-index 999
-  background #000
-  font-size 1rem
+  fs: (12/16)rem
   text-align center
 
 #container
@@ -28,8 +27,15 @@ footer
   padding 6rem 0
   text-align center
   font-weight bold
-  font-size 4rem
+  fs: (32/16)rem
 
   #goto-player
-    font-size 6rem
+    fs: (48/16)rem
     text-align center
+
+#about-us
+  vertically-align()
+  padding 6rem 0
+  text-align center
+  font-weight bold
+  fs: (32/16)rem

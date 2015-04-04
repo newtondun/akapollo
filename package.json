@@ -6,7 +6,11 @@
     "type": "git",
     "url": "git@github.com:benji0818/akapollo.git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "express": "^3.4.4",
+    "jade": "^1.9.2",
+    "lodash-node": "^3.6.0"
+  },
   "devDependencies": {
     "aliasify": "^1.7.2",
     "axis": "^0.3.1",
@@ -24,10 +28,7 @@
     "gulp-uglify": "^1.1.0",
     "gulp-util": "^3.0.4",
     "keymaster": "^1.6.2",
-    "lodash-node": "^3.6.0",
     "merge-stream": "^0.1.7",
-    "nib": "^1.1.0",
-    "object-assign": "^2.0.0",
     "pretty-hrtime": "^1.0.0",
     "require-dir": "^0.3.0",
     "vinyl-buffer": "^1.0.0",
@@ -37,6 +38,7 @@
   "aliasify": "./gulpfiles/config/aliases.js",
   "browserify-shim": {
     "lodash": "global:_",
+    "jquery": "global:jQuery",
     "three": "global:THREE",
     "two": "global:Two"
   },

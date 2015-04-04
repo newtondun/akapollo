@@ -8,7 +8,23 @@ app.use('/admin', function(req, res) {
 });
 
 app.get('/admin/dashboard', function(req, res) {
-  res.render('admin');
+  if (!req.AV.user) {
+    return res.redirect('/login');
+  }
+
+  var data = [];
+
+  AV.Cloud.run('GetSounds', null, {
+    success: function(result) {
+      data = result;
+      res.render('admin', {
+        data: data
+      });
+    },
+    error: function(error) {
+      console.log(error);
+    }
+  });
 });
 
 app.get('/admin/upload', function(req, res) {

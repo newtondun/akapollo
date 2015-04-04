@@ -28,9 +28,10 @@ app.post('/signin', function(req, res) {
 
 app.post('/upload', function(req, res){
   var Music = req.files.music;
-  if(Music) {
-    fs.readFile(Music.path, function(err, data){
-      if(err) {
+  if (Music) {
+    fs.readFile(Music.path, function(err, data) {
+
+      if (err) {
         return res.send('读取文件失败');
       }
 
@@ -42,8 +43,23 @@ app.post('/upload', function(req, res){
       MusicFile.save().then(function(MusicFile){
         res.send('上传成功！');
       });
+
     });
   } else {
     res.send('请选择一个文件。');
   }
+});
+
+app.get('/sounds', function(req, res) {
+  var data = [];
+
+  AV.Cloud.run('GetSounds', null, {
+    success: function(result) {
+      data = result;
+      res.send(data);
+    },
+    error: function(error) {
+      console.log(error);
+    }
+  });
 });
