@@ -2,12 +2,12 @@ var base = require('./base');
 
 var config = {
   entries: [
-    "./client/static/js/player/Main.js"
+    "./client/static/js/client/Entry.js"
   ],
   dest: "./public/js",
-  filename: "player.js",
+  filename: "client.js",
   paths: [
-    "./client/static/js/player"
+    "./client/static/js/client"
   ]
 };
 

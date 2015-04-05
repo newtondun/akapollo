@@ -33,9 +33,35 @@ footer
     fs: (48/16)rem
     text-align center
 
+#player
+  fixed bottom left right
+
+  #keyboard
+    margin-bottom 10rem
+    text-align center
+
 #about-us
   vertically-align()
   padding 6rem 0
   text-align center
   font-weight bold
   fs: (32/16)rem
+
+kbd {
+  display inline-block
+  margin 0 .2rem
+  padding .2rem .7rem
+  background-color #f7f7f7
+  border .1rem solid #999
+  border-radius .2rem
+  color #333
+  fs: (24/16)rem
+  font-weight bold
+
+  &.pressed {
+    background-color #979797
+    border .1rem solid #6a6a6a
+    color #000
+  }
+}
+

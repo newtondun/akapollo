@@ -2,7 +2,7 @@ var base = require('./base');
 
 var config = {
   entries: [
-    "./client/static/js/admin/Main.js"
+    "./client/static/js/admin/Entry.js"
   ],
   dest: "./public/js",
   filename: "admin.js",

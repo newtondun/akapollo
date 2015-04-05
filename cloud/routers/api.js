@@ -27,11 +27,11 @@ app.post('/signin', function(req, res) {
   });
 });
 
-app.get('/loop/get', function(req, res) {
+app.get('/loop', function(req, res) {
   AV.Cloud.run('GetLoop', null, {
     success: function(result) {
-      data = result;
-      res.send({ data: data });
+      res.end(JSON.stringify(result));
+      console.log("GET /loop success");
     },
     error: function(error) {
       console.log(error);

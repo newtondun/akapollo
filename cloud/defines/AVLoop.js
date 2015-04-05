@@ -1,20 +1,22 @@
 var _ = require('lodash-node');
+var Loop = require('cloud/class/Loop');
 
 AV.Cloud.define('GetLoop', function(req, res) {
 
   var data = [];
 
-  var Loop = new AV.Query("Loop");
+  var Result = new AV.Query(Loop);
+  Result.exists('key');
 
-  Loop.find({
+  Result.find({
     success: function(results) {
       if (_.isEmpty(results)) {
-        data = {
+        data = [{
           id: null,
           name: null,
           key: null,
           url: null
-        };
+        }];
       } else {
         data = _.map(results, function(result) {
           return {
@@ -44,10 +46,10 @@ AV.Cloud.define('PutLoop', function(req, res) {
   var id = req.params.id;
   var key = req.params.key;
 
-  var Loop = new AV.Query('Loop');
-  Loop.equalTo('objectId', id);
+  var Result = new AV.Query(Loop);
+  Result.equalTo('objectId', id);
 
-  Loop.first({
+  Result.first({
     success: function(result) {
       if (_.isEmpty(result)) {
         return res.error('Cannot Find this Loop');
@@ -79,10 +81,10 @@ AV.Cloud.define('DeleteLoop', function(req, res) {
 
   var id = req.params.id;
 
-  var Loop = new AV.Query('Loop');
-  Loop.equalTo('objectId', id);
+  var Result = new AV.Query(Loop);
+  Result.equalTo('objectId', id);
 
-  Loop.first({
+  Result.first({
     success: function(result) {
       if (_.isEmpty(result)) {
         return res.error('Cannot Find this Loop');

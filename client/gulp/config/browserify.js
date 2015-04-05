@@ -1,8 +1,8 @@
 var admin = require('../bundle/admin');
-var player = require('../bundle/player');
+var client = require('../bundle/client');
 
 var config = {
-  libs: [admin, player]
+  libs: [admin, client]
 };
 
 module.exports = config;
